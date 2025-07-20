@@ -1,0 +1,52 @@
+# draft: true
+# language: de
+# template: default
+color: d2042d
+
+body: |
+  body content
+
+footer: | 
+  footer content
+
+tax: 30
+# currency: EUR
+hourly_rate: 12.34
+
+# invoice_id: custom_id_123
+# created_date: '2030-12-01'
+# due_date: '2030-12-31'
+
+company:
+  name: Example Company
+  description: development and consulting
+
+  address: |
+    Address 123
+    12345 Location
+  tax_id: DE1234567
+
+  email: invoice@example.com
+  phone: 0049 1234 123456789-0
+  web: https://example.com
+
+  bank: BANK
+  bic: BICABCDEFG
+  iban: DE00000000000000000000
+
+customer:
+  name: Example Customer
+  address: |
+    Address 123
+    12345 Location
+
+  email: customer@example.com
+  phone: 0049 1234 123456789-0
+
+positions:
+  - description: Default Rate
+    quantity: 16
+
+  - description: Non default Rate
+    quantity: 2
+    rate: 200.00

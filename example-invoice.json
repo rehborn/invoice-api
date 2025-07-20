@@ -1,0 +1,36 @@
+{
+  "color": "d2042d",
+  "body": "body content\n",
+  "footer": "footer content\n",
+  "tax": 30,
+  "hourly_rate": 12.34,
+  "company": {
+    "name": "Example Company",
+    "description": "development and consulting",
+    "address": "Address 123\n12345 Location\n",
+    "tax_id": "DE1234567",
+    "email": "invoice@example.com",
+    "phone": "0049 1234 123456789-0",
+    "web": "https://example.com",
+    "bank": "BANK",
+    "bic": "BICABCDEFG",
+    "iban": "DE00000000000000000000"
+  },
+  "customer": {
+    "name": "Example Customer",
+    "address": "Address 123\n12345 Location\n",
+    "email": "customer@example.com",
+    "phone": "0049 1234 123456789-0"
+  },
+  "positions": [
+    {
+      "description": "Default Rate",
+      "quantity": 16
+    },
+    {
+      "description": "Non default Rate",
+      "quantity": 2,
+      "rate": 200.0
+    }
+  ]
+}
