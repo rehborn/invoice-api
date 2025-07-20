@@ -8,10 +8,18 @@ Simple API for rendering neat PDF invoices
 - includes EPC QR Code/SEPA Payment (segno)
 
 
-![](example-invoice-en.png)
-![](example-invoice-de.png)
+<img src="example-invoice-en.png" height="400px" />
+<img src="example-invoice-de.png" height="400px" />
 
-### Quickstart
+## Quickstart
+
+### Demo
+```shell
+curl https://invoice-api.rehborn.dev|jq > invoice.json
+curl -X POST -H "Content-Type: application/json"  -d @invoice.json https://invoice-api.rehborn.dev > invoice.pdf
+```
+
+### Local
 
 ```shell
 docker run -p 8000:80 ghcr.io/rehborn/invoice-api:main
@@ -30,6 +38,10 @@ services:
     ports:
       - "8000:80"
 ```
+
+## Schema
+
+- [schema](src/schema.py)
 
 ### JSON
 ```json
@@ -143,7 +155,6 @@ positions:
 INVOICE_API=http://localhost:8000 python yaml2invoice.py example-invoice.yaml
 ``` 
 
-[schema](src/schema.py)
 
 ## Development
 
