@@ -15,7 +15,7 @@ class Company(BaseModel):
     tax_id: str | None = Field(max_length=100)
 
     email: str | None = Field(max_length=100)
-    phone: str = Field(max_length=30)
+    phone: str = Field(max_length=30, default=None)
     web: str = Field(max_length=30)
 
     bank: str | None = Field(max_length=100)
