@@ -8,15 +8,14 @@ Simple API for rendering neat PDF invoices
 - includes EPC QR Code/SEPA Payment (segno)
 
 
-<img src="example-invoice-en.png" height="400px" />
-<img src="example-invoice-de.png" height="400px" />
+<img src="example-invoice-en.png" height="400px" /> <img src="example-invoice-de.png" height="400px" />
 
 ## Quickstart
 
 ### Demo
 ```shell
 curl https://invoice-api.rehborn.dev|jq > invoice.json
-curl -X POST -H "Content-Type: application/json"  -d @invoice.json https://invoice-api.rehborn.dev > invoice.pdf
+curl -X POST -H "Content-Type: application/json" -d @invoice.json https://invoice-api.rehborn.dev > invoice.pdf
 ```
 
 ### Local
@@ -26,7 +25,7 @@ docker run -p 8000:80 ghcr.io/rehborn/invoice-api:main
 ```
 ```shell
 curl http://localhost:8000/ > example-invoice.json
-curl -X POST -H "Content-Type: application/json"  -d @example-invoice.json  http://localhost:8000/ > invoice.pdf
+curl -X POST -H "Content-Type: application/json" -d @example-invoice.json  http://localhost:8000/ > invoice.pdf
 ```
 
 ### Docker compose
@@ -182,5 +181,5 @@ pybabel update -l de -d locale/ -i locale/en/LC_MESSAGES/messages.po
 
 compile 
 ```shell
-pybabel compile -f -d  locale/
+pybabel compile -f -d locale/
 ```
