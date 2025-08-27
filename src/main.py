@@ -105,7 +105,7 @@ async def create_invoice(request: Request, payload: Invoice):
         payload.company.bic,
         str(context['total_with_tax']),
         context['invoice_id'],
-        payload.color,
+        # payload.color,
     )
     # context['web_qrcode'] = utils.base64_qrcode(payload.company.web)
 
