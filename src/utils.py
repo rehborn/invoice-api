@@ -1,5 +1,6 @@
 import io
 from base64 import b64encode
+from typing import Optional
 
 import segno
 
@@ -10,7 +11,7 @@ def base64_qrcode(text: str, **kwargs) -> str:
     return "data:image/svg+xml;base64,{}==".format(b64encode(buffer.getvalue()).decode())
 
 
-def sepa_qrcode(name: str, iban: str, bic: str, amount: str, invoice_id: str, color: str = '#00ff00') -> str:
+def sepa_qrcode(name: str, iban: str, bic: str, amount: str, invoice_id: str, color: Optional[str] = 'black') -> str:
     """
     https://en.wikipedia.org/wiki/EPC_QR_code
     """
