@@ -32,7 +32,7 @@ class Customer(BaseModel):
 
 class InvoicePosition(BaseModel):
     description: str | None = Field(max_length=100)
-    quantity: Decimal = Field(max_digits=10, decimal_places=2, default=Decimal("1.00"))
+    quantity: Decimal = Field(max_digits=10, decimal_places=3, default=Decimal("1.00"))
     rate: Decimal = Field(max_digits=10, decimal_places=2, default=Decimal("0.00"))
     amount: Decimal | None = Field(max_digits=10, decimal_places=2, default=None)
 
