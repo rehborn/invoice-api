@@ -50,13 +50,6 @@ def slugify(value):
 async def create_invoice(request: Request, payload: Invoice):
     context = payload.__dict__
 
-    # invoice id
-    if not context['invoice_id']:
-        _company = slugify(payload.company.name)
-        _customer = slugify(payload.customer.name)
-        _date = datetime.now().strftime("%Y%m%d")
-        context['invoice_id'] = f'{_company}-{_customer}-{_date}'
-
     # dates
     if payload.created_date:
         created_date = datetime.strptime(payload.created_date, STRF_DATE)
@@ -69,6 +62,13 @@ async def create_invoice(request: Request, payload: Invoice):
         context['due_date'] = format_date(datetime.strptime(payload.due_date, STRF_DATE), locale=payload.language)
     else:
         context['due_date'] = format_date(created_date + timedelta(days=30), locale=payload.language)
+
+    # invoice id
+    if not context['invoice_id']:
+        _company = slugify(payload.company.name)
+        _customer = slugify(payload.customer.name)
+        _date = created_date.strftime("%Y%m%d")
+        context['invoice_id'] = f'{_company}-{_customer}-{_date}'
 
     fc = lambda x: format_currency(x, currency=payload.currency, locale=payload.language)
 
