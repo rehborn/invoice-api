@@ -15,3 +15,11 @@ dependencies = [
     "uvicorn>=0.35.0",
     "weasyprint>=65.1",
 ]
+[dependency-groups]
+dev = [
+    "pytest>=8.3.4,<9",
+    "coverage>=7.6.9,<8",
+    "httpx>=0.28.1,<0.29",
+    "pytest-dependency>=0.6.0",
+    "ruff>=0.12.11",
+]
