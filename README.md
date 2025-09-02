@@ -164,7 +164,7 @@ uv sync
 
 run fastapi
 ```shell
-uv run python -m uvicorn src.main:app --reload
+uv run python -m uvicorn invoice_api.main:app --reload
 ```
 
 ### PyBabel

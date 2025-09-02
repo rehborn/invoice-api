@@ -2,7 +2,7 @@ import pytest
 from httpx import ASGITransport, AsyncClient
 import logging
 
-from src.main import app
+from invoice_api.main import app
 
 logger = logging.getLogger(__name__)
 

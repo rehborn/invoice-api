@@ -9,8 +9,8 @@ from fastapi import FastAPI, Response
 from jinja2 import Environment, FileSystemLoader
 from weasyprint import HTML
 
-import src.utils as utils
-from src.schema import Invoice
+import invoice_api.utils as utils
+from invoice_api.schema import Invoice
 
 __version__ = '0.0.1'
 
