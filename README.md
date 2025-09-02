@@ -164,22 +164,39 @@ uv sync
 
 run fastapi
 ```shell
-uv run python 
+uv run python -m uvicorn src.main:app --reload
 ```
 
 ### PyBabel
 
 extract
 ```shell
-pybabel extract -F babel.cfg -o locale/en/LC_MESSAGES/messages.po .
+uv run pybabel extract -F babel.cfg -o locale/en/LC_MESSAGES/messages.po .
 ```
 
 Update
 ```shell
-pybabel update -l de -d locale/ -i locale/en/LC_MESSAGES/messages.po
+uv run pybabel update -l de -d locale/ -i locale/en/LC_MESSAGES/messages.po
 ```
 
 compile 
 ```shell
-pybabel compile -f -d locale/
+uv run pybabel compile -f -d locale/
+```
+
+### Tests
+
+```shell
+uv run python -m pytest tests/
+```
+
+### Coverage
+```shell
+uv run coverage run -m pytest
+uv run coverage report -m --skip-covered
+``` 
+
+### Linter
+```shell
+uv run ruff check
 ```
