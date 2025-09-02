@@ -1,17 +1,16 @@
 import io
-from datetime import datetime, timedelta
+from datetime import timedelta
 from pathlib import Path
 
 import yaml
-from babel.dates import format_date
 from babel.numbers import format_currency
 from babel.support import Translations
-from fastapi import FastAPI, Request, Response
+from fastapi import FastAPI, Response
 from jinja2 import Environment, FileSystemLoader
 from weasyprint import HTML
 
-import utils
-from schema import *
+import src.utils as utils
+from src.schema import Invoice
 
 __version__ = '0.0.1'
 
@@ -37,7 +36,7 @@ app = FastAPI(**fastapi_options)
 
 
 @app.get('/', status_code=200, include_in_schema=False)
-async def root(request: Request):
+async def root():
     data = yaml.safe_load(open(BASE_DIR / 'example-invoice.yaml', 'r').read())
     return data
 
@@ -47,30 +46,21 @@ def slugify(value):
 
 
 @app.post('/', status_code=200)
-async def create_invoice(request: Request, payload: Invoice):
-    context = payload.__dict__
-
-    # dates
-    if payload.created_date:
-        created_date = datetime.strptime(payload.created_date, STRF_DATE)
-    else:
-        created_date = datetime.now()
-
-    context['created_date'] = format_date(created_date, locale=payload.language)
+async def create_invoice(payload: Invoice):
+    context = payload.__dict__.copy()
 
     if payload.due_date:
-        context['due_date'] = format_date(datetime.strptime(payload.due_date, STRF_DATE), locale=payload.language)
-    else:
-        context['due_date'] = format_date(created_date + timedelta(days=30), locale=payload.language)
+        context['due_date'] = payload.created_date + timedelta(days=30)
 
     # invoice id
     if not context['invoice_id']:
         _company = slugify(payload.company.name)
         _customer = slugify(payload.customer.name)
-        _date = created_date.strftime("%Y%m%d")
+        _date = context['created_date'].strftime("%Y%m%d")
         context['invoice_id'] = f'{_company}-{_customer}-{_date}'
 
-    fc = lambda x: format_currency(x, currency=payload.currency, locale=payload.language)
+    def fc(x, currency=payload.currency, locale=payload.language):
+        return format_currency(x, currency, locale)
 
     # positions
     context['subtotal'] = 0
