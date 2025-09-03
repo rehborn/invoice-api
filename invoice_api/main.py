@@ -105,7 +105,7 @@ async def create_invoice(payload: Invoice):
     jinja_env = Environment(loader=FileSystemLoader(BASE_DIR / 'templates/'), extensions=['jinja2.ext.i18n'])
     # jinja_env.add_extension('jinja2.ext.debug')
     translations = Translations.load(BASE_DIR / 'locale', payload.language)
-    jinja_env.install_gettext_translations(translations)  # noqa
+    jinja_env.install_gettext_translations(translations)  # noqa # ty: ignore[unresolved-attribute]
 
     jinja_template = jinja_env.get_template(f'{payload.template}.html')
 
