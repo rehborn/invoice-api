@@ -89,14 +89,16 @@ async def create_invoice(payload: Invoice):
     context['subtotal_formatted'] = fc(context['subtotal'])
 
     # EPC QR Code
-    context['sepa_qrcode'] = utils.sepa_qrcode(
-        payload.company.name,
-        payload.company.iban,
-        payload.company.bic,
-        str(context['total_with_tax']),
-        context['invoice_id'],
-        # payload.color,
-    )
+    context['sepa_qrcode'] = None
+    if payload.company.iban and payload.company.bic:
+        context['sepa_qrcode'] = utils.sepa_qrcode(
+            payload.company.name,
+            payload.company.iban,
+            payload.company.bic,
+            str(context['total_with_tax']),
+            context['invoice_id'],
+            # payload.color,
+        )
     # context['web_qrcode'] = utils.base64_qrcode(payload.company.web)
 
     # jinja and babel

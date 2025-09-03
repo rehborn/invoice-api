@@ -205,7 +205,9 @@
 <body>
 {% if invoice.draft %}<span class="draft">draft</span>{% endif %}
 {{ invoice.company.name }} &middot; {{ invoice.company.description }}
+{% if invoice.sepa_qrcode %}
 <img src="{{ invoice.sepa_qrcode }}" alt="SEPA QR Code" class="qrcode"/>
+{% endif %}
 
 <h1>
     {{ _("Invoice") }}
@@ -297,7 +299,9 @@
     <a href="{{ invoice.company.web }}">{{ invoice.company.web }}</a>
 </footer>
 <footer class="center">
+    {% if invoice.company.bank and invoice.company.iban %}
     {{ invoice.company.bank }} &middot; IBAN: {{ invoice.company.iban }}<br />
+    {% endif %}
     {{ _('Tax-ID') }}: {{ invoice.company.tax_id }}
     {{ invoice.footer }}
 </footer>

@@ -19,9 +19,9 @@ class Company(BaseModel):
     phone: str = Field(max_length=30, default=None)
     web: str = Field(max_length=30)
 
-    bank: str | None = Field(max_length=100)
-    bic: str | None = Field(max_length=100)
-    iban: str | None = Field(max_length=100)
+    bank: str | None = Field(max_length=100, default=None)
+    bic: str | None = Field(max_length=100, default=None)
+    iban: str | None = Field(max_length=100, default=None)
 
 
 class Customer(BaseModel):
