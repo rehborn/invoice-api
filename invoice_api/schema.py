@@ -44,11 +44,11 @@ class Invoice(BaseModel):
     color: str | None = Field(max_length=100, default='000000')
     template: str | None = Field(max_length=100, default='default', pattern=SLUG)
     invoice_id: str | None = Field(max_length=100, default=None)
-    created_date: date | None = Field(default=date.today())
+    created_date: date = Field(default=date.today())
     due_date: date | None = Field(default=None)
 
     tax: Decimal = Field(max_digits=10, decimal_places=2, default=Decimal("0.00"))
-    currency: str | None = Field(max_length=100, default="EUR")
+    currency: str = Field(max_length=100, default="EUR")
     hourly_rate: Decimal = Field(decimal_places=2, max_digits=10, default=Decimal("0.00"))
 
     body: str | None = Field(max_length=200, default=None)
