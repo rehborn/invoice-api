@@ -49,7 +49,7 @@ def slugify(value):
 async def create_invoice(payload: Invoice):
     context = payload.__dict__.copy()
 
-    if payload.due_date:
+    if not payload.due_date:
         context['due_date'] = payload.created_date + timedelta(days=30)
 
     # invoice id
