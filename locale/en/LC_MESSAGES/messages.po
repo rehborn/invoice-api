@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2025-07-20 12:02+0200\n"
+"POT-Creation-Date: 2025-09-03 11:14+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,51 +17,55 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.17.0\n"
 
-#: templates/default.html:4 templates/default.html:9 templates/default.html:210
+#: templates/default.html:4 templates/default.html:9 templates/default.html:213
 msgid "Invoice"
 msgstr ""
 
-#: templates/default.html:218
+#: templates/default.html:221
 msgid "From"
 msgstr ""
 
-#: templates/default.html:226
+#: templates/default.html:229
 msgid "Recipient"
 msgstr ""
 
-#: templates/default.html:241
+#: templates/default.html:244
 msgid "Date"
 msgstr ""
 
-#: templates/default.html:244
+#: templates/default.html:247
 msgid "Due Date"
 msgstr ""
 
-#: templates/default.html:256
+#: templates/default.html:258
+msgid "Description"
+msgstr ""
+
+#: templates/default.html:259
 msgid "Quantity"
 msgstr ""
 
-#: templates/default.html:257
+#: templates/default.html:260
 msgid "Unit"
 msgstr ""
 
-#: templates/default.html:258 templates/default.html:278
+#: templates/default.html:261 templates/default.html:281
 msgid "Subtotal"
 msgstr ""
 
-#: templates/default.html:279
+#: templates/default.html:282
 msgid "Tax"
 msgstr ""
 
-#: templates/default.html:280
+#: templates/default.html:283
 msgid "Total"
 msgstr ""
 
-#: templates/default.html:300
+#: templates/default.html:303
 msgid "Tax-ID"
 msgstr ""
 
-#: templates/default.html:304
+#: templates/default.html:307
 msgid "Thank You"
 msgstr ""
 
