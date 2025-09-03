@@ -6,7 +6,6 @@ from context import pytest, AsyncClient
 
 class TestMain:
     @pytest.mark.anyio
-    @pytest.mark.dependency()
     async def test_root(self, client: AsyncClient):
         response = await client.get("/")
         data = response.json()
@@ -16,9 +15,8 @@ class TestMain:
             assert key in data
 
     @pytest.mark.anyio
-    @pytest.mark.dependency(depends='TestMain::test_root')
     async def test_create_pdf(self, client: AsyncClient):
-        with open('example.json', 'r') as f:
+        with open('example-invoice.json', 'r') as f:
             data = json.load(f)
 
         response = await client.post("/", json=data)
