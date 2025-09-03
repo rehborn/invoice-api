@@ -200,3 +200,8 @@ uv run coverage report -m --skip-covered
 ```shell
 uv run ruff check
 ```
+
+### Static Type Checker
+```shell
+uv run ty check
+```
