@@ -60,7 +60,7 @@ async def create_invoice(payload: Invoice):
         context['invoice_id'] = f'{_company}-{_customer}-{_date}'
 
     def fc(x, currency=payload.currency, locale=payload.language):
-        return format_currency(x, currency, locale)
+        return format_currency(x, currency=currency, locale=locale)
 
     # positions
     context['subtotal'] = 0
