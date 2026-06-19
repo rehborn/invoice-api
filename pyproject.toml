@@ -17,7 +17,7 @@ dependencies = [
 ]
 [dependency-groups]
 dev = [
-    "pytest>=8.3.4,<9",
+    "pytest>=9.1.1,<10",
     "coverage>=7.6.9,<8",
     "httpx>=0.28.1,<0.29",
     "pytest-dependency>=0.6.0",
